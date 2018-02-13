@@ -1,13 +1,13 @@
 package com.yao.dribo.shot_main;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +15,7 @@ import android.view.ViewGroup;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.yao.dribo.R;
-import com.yao.dribo.bucket.BucketListFragment;
-import com.yao.dribo.bucket.ChooseBucketActivity;
 import com.yao.dribo.model.Shot;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by Think on 2017/6/28.
@@ -33,13 +27,12 @@ public class ShotAdapter extends RecyclerView.Adapter{
 
     private final ShotFragment shotFragment;
     private final Shot shot;
-    private ArrayList<String> collectedBucketIds;
+
 
     public ShotAdapter(@NonNull Shot shot,
                        @NonNull ShotFragment shotFragment) {
-        this.shotFragment = shotFragment;
         this.shot = shot;
-        this.collectedBucketIds = null;
+        this.shotFragment = shotFragment;
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -71,11 +64,12 @@ public class ShotAdapter extends RecyclerView.Adapter{
                 ((ImageViewHolder) holder).image.setController(controller);
                 break;
             case VIEW_TYPE_SHOT_INFO:
-                InfoViewHolder shotDetailViewHolder = (InfoViewHolder) holder;
+                final InfoViewHolder shotDetailViewHolder = (InfoViewHolder) holder;
                 shotDetailViewHolder.title.setText(shot.title);
                 shotDetailViewHolder.authorName.setText(shot.user.name);
-                shotDetailViewHolder.description.setText(Html.fromHtml(shot.description == null
-                        ? "" : shot.description));
+                shotDetailViewHolder.description.setText(
+                        Html.fromHtml(shot.description == null ? "" : shot.description));
+                shotDetailViewHolder.description.setMovementMethod(LinkMovementMethod.getInstance());
                 shotDetailViewHolder.authorPicture.setImageURI(Uri.parse(shot.user.avatar_url));
 
                 shotDetailViewHolder.likeCount.setText(String.valueOf(shot.likes_count));
@@ -84,7 +78,7 @@ public class ShotAdapter extends RecyclerView.Adapter{
                 shotDetailViewHolder.shareButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        share(v.getContext());
+                        shotFragment.share();
                     }
                 });
 
@@ -120,14 +114,14 @@ public class ShotAdapter extends RecyclerView.Adapter{
         return shotFragment.getContext();
     }
 
-    private void bucket(Context context) {
-        if (collectedBucketIds != null) {
-            Intent intent = new Intent(context, ChooseBucketActivity.class);
-            intent.putStringArrayListExtra(BucketListFragment.KEY_CHOSEN_BUCKET_IDS,
-                    collectedBucketIds);
-            shotFragment.startActivityForResult(intent, shotFragment.REQ_CODE_BUCKET);
-        }
-    }
+//    private void bucket(Context context) {
+//        if (collectedBucketIds != null) {
+//            Intent intent = new Intent(context, ChooseBucketActivity.class);
+//            intent.putStringArrayListExtra(BucketListFragment.KEY_CHOSEN_BUCKET_IDS,
+//                    collectedBucketIds);
+//            shotFragment.startActivityForResult(intent, shotFragment.REQ_CODE_BUCKET);
+//        }
+//    }
 
     @Override
     public int getItemCount() {
@@ -143,42 +137,42 @@ public class ShotAdapter extends RecyclerView.Adapter{
         }
     }
 
-    private void share (Context context) {
-        Intent shareIntent = new Intent();
-        shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, shot.title + " " + shot.html_url);
-        shareIntent.setType("text/plain");
-        context.startActivity(Intent.createChooser(shareIntent,context.getString(R.string.share_shot)));
-    }
+//    private void share (Context context) {
+//        Intent shareIntent = new Intent();
+//        shareIntent.setAction(Intent.ACTION_SEND);
+//        shareIntent.putExtra(Intent.EXTRA_TEXT, shot.title + " " + shot.html_url);
+//        shareIntent.setType("text/plain");
+//        context.startActivity(Intent.createChooser(shareIntent,context.getString(R.string.share_shot)));
+//    }
 
-    public void updateCollectedBucketIds(List<String> bucketIds) {
-        if (collectedBucketIds == null) {
-            collectedBucketIds = new ArrayList<>();
-        }
+//    public void updateCollectedBucketIds(List<String> bucketIds) {
+//        if (collectedBucketIds == null) {
+//            collectedBucketIds = new ArrayList<>();
+//        }
+//
+//        collectedBucketIds.clear();
+//        collectedBucketIds.addAll(bucketIds);
+//
+//
+//        shot.bucketed = !bucketIds.isEmpty();
+//        notifyDataSetChanged();
+//    }
 
-        collectedBucketIds.clear();
-        collectedBucketIds.addAll(bucketIds);
-
-
-        shot.bucketed = !bucketIds.isEmpty();
-        notifyDataSetChanged();
-    }
-
-    public void updateCollectedBucketIds (@NonNull List<String> addedIds,
-                                          @NonNull List<String> removedIds) {
-        if (collectedBucketIds == null) {
-            collectedBucketIds = new ArrayList<>();
-        }
-
-        collectedBucketIds.addAll(addedIds);
-        collectedBucketIds.removeAll(removedIds);
-
-        shot.bucketed = !collectedBucketIds.isEmpty();
-        shot.buckets_count += addedIds.size() - removedIds.size();
-        notifyDataSetChanged();
-    }
-
-    public List<String> getReadOnlyCollectedBucketIds() {
-        return Collections.unmodifiableList(collectedBucketIds);
-    }
+//    public void updateCollectedBucketIds (@NonNull List<String> addedIds,
+//                                          @NonNull List<String> removedIds) {
+//        if (collectedBucketIds == null) {
+//            collectedBucketIds = new ArrayList<>();
+//        }
+//
+//        collectedBucketIds.addAll(addedIds);
+//        collectedBucketIds.removeAll(removedIds);
+//
+//        shot.bucketed = !collectedBucketIds.isEmpty();
+//        shot.buckets_count += addedIds.size() - removedIds.size();
+//        notifyDataSetChanged();
+//    }
+//
+//    public List<String> getReadOnlyCollectedBucketIds() {
+//        return Collections.unmodifiableList(collectedBucketIds);
+//    }
 }

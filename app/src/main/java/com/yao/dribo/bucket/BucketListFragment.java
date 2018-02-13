@@ -41,6 +41,11 @@ import butterknife.ButterKnife;
  * Created by Think on 2017/6/20.
  */
 
+/**
+ * what this class for
+ * what this function for
+ * get data for bucket fragment.
+ */
 public class BucketListFragment extends Fragment {
 
     public static final int REQ_CODE_NEW_BUCKET = 100;
@@ -99,9 +104,11 @@ public class BucketListFragment extends Fragment {
         isChoosingMode = args.getBoolean(KEY_CHOOSING_MODE);
 
         if (isChoosingMode) {
-            List<String> chosenBucketIdList = getArguments().getStringArrayList(KEY_CHOSEN_BUCKET_IDS);
+            List<String> chosenBucketIdList = args.getStringArrayList(KEY_CHOSEN_BUCKET_IDS);
             if (chosenBucketIdList != null) {
                 collectedBucketIdSet = new HashSet<>(chosenBucketIdList);
+            } else {
+                collectedBucketIdSet = new HashSet<>();
             }
         } else {
             collectedBucketIdSet = new HashSet<>();
@@ -165,7 +172,7 @@ public class BucketListFragment extends Fragment {
             if (!TextUtils.isEmpty(bucketName)) {
                 AsyncTaskCompat.executeParallel(new NewBucketTask(bucketName, bucketDescription));
             }
-        };
+        }
     }
 
     private class LoadBucketTask extends AuthTask<Void, Void, List<Bucket>> {
@@ -178,7 +185,7 @@ public class BucketListFragment extends Fragment {
         protected List<Bucket> doJob(Void... params) throws AuthException{
             final int page = refresh ? 1 : adapter.getData().size() / AuthFunctions.COUNT_PER_PAGE + 1;
             return userId == null
-                    ? AuthFunctions.getUserBuckets()
+                    ? AuthFunctions.getUserBuckets(page)
                     : AuthFunctions.getUserBuckets(userId, page);
         }
 
@@ -193,6 +200,7 @@ public class BucketListFragment extends Fragment {
             }
 
             if (refresh) {
+                adapter.setData(buckets);
                 swipeRefreshLayout.setRefreshing(false);
             } else {
                 adapter.append(buckets);

@@ -40,7 +40,7 @@ public class BucketListAdapter extends InfiniteAdapter<Bucket> {
     }
 
     @Override
-    protected void onBindItemViewHolder(BaseViewHolder holder, int position) {
+    protected void onBindItemViewHolder(BaseViewHolder holder, final int position) {
         final Bucket bucket = getData().get(position);
         final BucketViewHolder bucketViewHolder = (BucketViewHolder) holder;
 
@@ -65,7 +65,7 @@ public class BucketListAdapter extends InfiniteAdapter<Bucket> {
             bucketViewHolder.bucketLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getContext(), BucketListAdapter.class);
+                    Intent intent = new Intent(getContext(), BucketShotListActivity.class);
                     intent.putExtra(ShotListFragment.KEY_BUCKET_ID, bucket.id);
                     intent.putExtra(BucketShotListActivity.KEY_BUCKET_NAME, bucket.name);
                     getContext().startActivity(intent);

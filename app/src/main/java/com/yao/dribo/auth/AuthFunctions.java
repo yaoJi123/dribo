@@ -189,6 +189,10 @@ public class AuthFunctions {
         String url = USER_END_POINT + "/" + "buckets?per_page=" + Integer.MAX_VALUE;
         return parseResponse(makeGetRequest(url), BucketListType);
     }
+    public static List<Bucket> getUserBuckets(int page) throws AuthException{
+        String url = USER_END_POINT + "/" + "buckets?page=" + page;
+        return parseResponse(makeGetRequest(url), BucketListType);
+    }
 
     public static Bucket newBucket(String name, String description) throws AuthException{
         FormBody formBody = new FormBody.Builder()

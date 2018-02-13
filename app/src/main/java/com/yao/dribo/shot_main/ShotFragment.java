@@ -44,7 +44,7 @@ public class ShotFragment extends Fragment{
     @BindView(R.id.recycler_view) RecyclerView recyclerView;
     public static final String KEY_SHOT = "shot";
 
-    private ShotAdapter adapter;
+    //private ShotAdapter adapter;
     private Shot shot;
     private ArrayList<String> collectedBucketIds;
     private boolean isLiking;
@@ -69,10 +69,10 @@ public class ShotFragment extends Fragment{
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         shot = ModelUtils.toObject(getArguments().getString(KEY_SHOT), new TypeToken<Shot>(){});
 
-        adapter = new ShotAdapter(shot, this);
+        //adapter = new ShotAdapter(shot, this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(new ShotAdapter(shot, this));
 
         isLiking = true;
         AsyncTaskCompat.executeParallel(new CheckLikeTask());

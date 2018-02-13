@@ -20,9 +20,11 @@
         </activity>
 
         <activity android:name=".MainActivity"/>
-        <activity android:name="com.yao.dribo.bucket.ChooseBucketActivity"/>
+
+
         <activity android:name="com.yao.dribo.shot_main.ShotActivity"/>
         <activity android:name="com.yao.dribo.bucket.BucketShotListActivity"/>
+        <activity android:name="com.yao.dribo.bucket.ChooseBucketActivity"/>
         <activity
             android:name="com.yao.dribo.auth.AuthActivity"
             android:windowSoftInputMode="adjustPan"/>
