@@ -10,7 +10,9 @@ import com.yao.dribo.base.BaseViewHolder;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
+/**
+ * bind the views of ShotListAdapter
+ * */
 
 
 public class ShotViewHolder extends BaseViewHolder{

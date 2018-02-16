@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import com.yao.dribo.base.SingleFragmentActivity;
 
 /**
- * Created by Think on 2017/6/28.
+ * The activity for the single shot details
  */
 
 public class ShotActivity extends SingleFragmentActivity {

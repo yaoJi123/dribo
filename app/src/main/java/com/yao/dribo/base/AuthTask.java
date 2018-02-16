@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 import com.yao.dribo.auth.AuthException;
 
 /**
- * Created by Think on 2017/7/5.
+ * A custom class of AuthTask
  */
 
 public abstract class AuthTask<Params, Progress, Result> extends AsyncTask <Params, Progress, Result>{

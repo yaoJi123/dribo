@@ -17,7 +17,7 @@ import com.yao.dribo.shot_list.ShotListFragment;
 import java.util.List;
 
 /**
- * Created by Think on 2017/6/20.
+ * apply the data from BucketListFragment to layout list_item_bucket
  */
 
 public class BucketListAdapter extends InfiniteAdapter<Bucket> {

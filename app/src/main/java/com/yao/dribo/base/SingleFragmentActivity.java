@@ -13,13 +13,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Think on 2017/6/28.
+ * A custom abstract class activity with single fragment
  */
 
 public abstract class SingleFragmentActivity extends AppCompatActivity{
     @BindView(R.id.toolbar) Toolbar toolbar;
-
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

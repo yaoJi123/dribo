@@ -24,6 +24,13 @@ import com.yao.dribo.shot_list.ShotListFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * User already login
+ * setupNavHeader
+ * setupDrawer
+ * setupFragment
+ * */
+
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.drawer_layout) DrawerLayout drawerLayout;

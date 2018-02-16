@@ -38,14 +38,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Think on 2017/6/20.
+ * The fragment and functions of the list of bucket has choose mode and not choose mode
+ * give the data to BucketListAdapter
  */
 
-/**
- * what this class for
- * what this function for
- * get data for bucket fragment.
- */
+
 public class BucketListFragment extends Fragment {
 
     public static final int REQ_CODE_NEW_BUCKET = 100;

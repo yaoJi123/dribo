@@ -17,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Think on 2017/7/2.
+ * the fragment of new a bucket
  */
 
 public class NewBucketFragment extends DialogFragment{

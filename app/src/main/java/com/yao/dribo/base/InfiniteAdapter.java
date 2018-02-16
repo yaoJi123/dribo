@@ -12,7 +12,7 @@ import com.yao.dribo.R;
 import java.util.List;
 
 /**
- * Created by Think on 2017/7/5.
+ * A custom class of infinite loading adapter
  */
 
 public abstract class InfiniteAdapter<M> extends RecyclerView.Adapter<BaseViewHolder> {

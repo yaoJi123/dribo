@@ -18,7 +18,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Think on 2017/6/26.
+ * User not log in
+ * responsible for capture the login activity
+ * redirect users to web login page
  */
 
 public class LoginActivity extends AppCompatActivity {

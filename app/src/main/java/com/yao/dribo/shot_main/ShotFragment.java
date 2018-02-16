@@ -35,8 +35,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Think on 2017/6/28.
- */
+ * the fragment for shot, get data and give the data to ShotAdapter
+ * */
 
 public class ShotFragment extends Fragment{
 
@@ -79,8 +79,6 @@ public class ShotFragment extends Fragment{
         AsyncTaskCompat.executeParallel(new LoadBucketsTask());
 
     }
-
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

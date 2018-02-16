@@ -6,7 +6,7 @@ import android.view.View;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
- * Created by Think on 2017/6/28.
+ * bind the image shot in ShotFragment
  */
 
 public class ImageViewHolder extends RecyclerView.ViewHolder{

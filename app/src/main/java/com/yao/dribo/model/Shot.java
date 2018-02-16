@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- * Created by Think on 2017/6/19.
+ * Custom class Shot, contains information of a shot.
  */
 
 public class Shot {

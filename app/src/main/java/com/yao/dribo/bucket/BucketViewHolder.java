@@ -11,7 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Think on 2017/6/20.
+ * Bind the views in BucketListAdapter
  */
 
 public class BucketViewHolder extends BaseViewHolder{

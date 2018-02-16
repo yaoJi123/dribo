@@ -6,7 +6,8 @@ import com.yao.dribo.base.SingleFragmentActivity;
 import com.yao.dribo.shot_list.ShotListFragment;
 
 /**
- * Created by Think on 2017/7/5.
+ * the activity of show the list of shots in a bucket
+ * using ShotListFragment
  */
 
 public class BucketShotListActivity extends SingleFragmentActivity{

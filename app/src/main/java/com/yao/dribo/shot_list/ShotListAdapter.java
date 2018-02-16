@@ -18,7 +18,9 @@ import com.yao.dribo.shot_main.ShotFragment;
 
 import java.util.List;
 
-
+/**
+ * apply the data from ShotListFragment to list_item_shot
+ * */
 
 public class ShotListAdapter extends InfiniteAdapter<Shot> {
 
@@ -59,9 +61,5 @@ public class ShotListAdapter extends InfiniteAdapter<Shot> {
 
         ImageUtils.loadShotImage(shot, shotViewHolder.image);
 
-    }
-
-    public interface LoadMoreListener{
-        void onLoadMore();
     }
 }

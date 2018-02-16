@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- * Created by Think on 2017/6/19.
+ * A custom class that add bold to the top bottom left and right of shots
  */
 
 public class SpaceItemDecoration extends RecyclerView.ItemDecoration{

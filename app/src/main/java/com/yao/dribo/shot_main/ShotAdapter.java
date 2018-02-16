@@ -18,7 +18,7 @@ import com.yao.dribo.R;
 import com.yao.dribo.model.Shot;
 
 /**
- * Created by Think on 2017/6/28.
+ * apply the data from ShotFragment to layout shot_item_image and layout shot_item_info
  */
 
 public class ShotAdapter extends RecyclerView.Adapter{

@@ -12,7 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Think on 2017/6/28.
+ * bind the views in ShotFragment
  */
 
 public class InfoViewHolder extends RecyclerView.ViewHolder{

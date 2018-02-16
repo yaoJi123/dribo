@@ -36,7 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Think on 2017/6/19.
+ * fragment for the details of single shots
  */
 
 public class ShotListFragment extends Fragment{

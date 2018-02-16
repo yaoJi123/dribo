@@ -1,7 +1,7 @@
 package com.yao.dribo.model;
 
 /**
- * Created by Think on 2017/6/19.
+ * Custom class User, contains information of a User
  */
 
 public class User {

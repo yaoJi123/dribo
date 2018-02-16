@@ -9,7 +9,7 @@ import com.yao.dribo.base.SingleFragmentActivity;
 import java.util.ArrayList;
 
 /**
- * Created by Think on 2017/7/3.
+ * the activity of the list of bucket in choosing mode or not choosing mode
  */
 
 public class ChooseBucketActivity extends SingleFragmentActivity {

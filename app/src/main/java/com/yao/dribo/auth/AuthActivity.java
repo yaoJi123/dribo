@@ -18,7 +18,9 @@ import com.yao.dribo.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
+/**
+* the activity of Oauth, track users login activity
+* */
 
 public class AuthActivity extends AppCompatActivity{
     public static final String KEY_URL = "url";
