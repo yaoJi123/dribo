@@ -114,14 +114,6 @@ public class ShotAdapter extends RecyclerView.Adapter{
         return shotFragment.getContext();
     }
 
-//    private void bucket(Context context) {
-//        if (collectedBucketIds != null) {
-//            Intent intent = new Intent(context, ChooseBucketActivity.class);
-//            intent.putStringArrayListExtra(BucketListFragment.KEY_CHOSEN_BUCKET_IDS,
-//                    collectedBucketIds);
-//            shotFragment.startActivityForResult(intent, shotFragment.REQ_CODE_BUCKET);
-//        }
-//    }
 
     @Override
     public int getItemCount() {
@@ -137,42 +129,4 @@ public class ShotAdapter extends RecyclerView.Adapter{
         }
     }
 
-//    private void share (Context context) {
-//        Intent shareIntent = new Intent();
-//        shareIntent.setAction(Intent.ACTION_SEND);
-//        shareIntent.putExtra(Intent.EXTRA_TEXT, shot.title + " " + shot.html_url);
-//        shareIntent.setType("text/plain");
-//        context.startActivity(Intent.createChooser(shareIntent,context.getString(R.string.share_shot)));
-//    }
-
-//    public void updateCollectedBucketIds(List<String> bucketIds) {
-//        if (collectedBucketIds == null) {
-//            collectedBucketIds = new ArrayList<>();
-//        }
-//
-//        collectedBucketIds.clear();
-//        collectedBucketIds.addAll(bucketIds);
-//
-//
-//        shot.bucketed = !bucketIds.isEmpty();
-//        notifyDataSetChanged();
-//    }
-
-//    public void updateCollectedBucketIds (@NonNull List<String> addedIds,
-//                                          @NonNull List<String> removedIds) {
-//        if (collectedBucketIds == null) {
-//            collectedBucketIds = new ArrayList<>();
-//        }
-//
-//        collectedBucketIds.addAll(addedIds);
-//        collectedBucketIds.removeAll(removedIds);
-//
-//        shot.bucketed = !collectedBucketIds.isEmpty();
-//        shot.buckets_count += addedIds.size() - removedIds.size();
-//        notifyDataSetChanged();
-//    }
-//
-//    public List<String> getReadOnlyCollectedBucketIds() {
-//        return Collections.unmodifiableList(collectedBucketIds);
-//    }
 }
